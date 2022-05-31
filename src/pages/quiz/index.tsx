@@ -11,7 +11,7 @@ import React, { useEffect, useState } from "react";
 import { ThreeDots } from "react-loader-spinner";
 import { useSelector } from "react-redux";
 import { selectProducts, selectQuizQuestions } from "state/selectors";
-//   import { ProgressBar, QuestionSlot } from "./elements";
+import { ProgressBar, QuestionSlot } from "./elements";
 import { Score } from "typings/types";
 import { calcMaxCategoryValue } from "utils/calculate";
 import { useAppDispatch } from "state/store";
@@ -101,6 +101,23 @@ const Quiz: React.FC = () => {
                   {questions[currentQuestion]?.questionText}
                 </Typography>
                 <FlexWrapper flexDirection="column" alignItems="center">
+                  {questions[currentQuestion]?.answerOptions.map(
+                    ({ label, value: { category }, value: { score } }) => (
+                      <FlexWrapper
+                        justifyContent="center"
+                        width="12.5rem"
+                        marginBottom="s8"
+                      >
+                        <QuestionSlot
+                          title={label}
+                          setScore={handleScore}
+                          category={category}
+                          score={score}
+                          image="arrow"
+                        />
+                      </FlexWrapper>
+                    )
+                  )}
                   {showScore ? (
                     <Box marginX="auto" marginTop="s24">
                       <GreenButton>Submit</GreenButton>
