@@ -35,6 +35,35 @@ const Quiz: React.FC = () => {
   const products = useSelector(selectProducts);
   const questions = useSelector(selectQuizQuestions);
 
+  const handleScore = (name: string, scr: number): void => {
+    const nextQuestion = currentQuestion + 1;
+    const isAllValuesAreZeroes = Object.values(score).every((e) => e === 0);
+    if (name === "never") {
+      setCurrentQuestion(nextQuestion);
+      setProgressBarValue(progressBarValue + 1);
+      setScore(score);
+    }
+
+    if (isAllValuesAreZeroes) {
+      navigate("/quiz");
+    }
+
+    if (name && scr && !showScore) {
+      setScore({
+        ...score,
+        [name]: (scr = score[name as keyof Score] + scr),
+      });
+
+      if (nextQuestion < questions.length) {
+        setCurrentQuestion(nextQuestion);
+        setProgressBarValue(progressBarValue + 1);
+      } else {
+        setShowScore(true);
+        setProgressBarValue(progressBarValue + 1);
+      }
+    }
+  };
+
   return (
     <>
       {loading ? (
