@@ -20,4 +20,4 @@ const plansSlice = createSlice({
 });
 
 export const { setPlans } = plansSlice.actions;
-export default plansSlice;
+export default plansSlice.reducer;

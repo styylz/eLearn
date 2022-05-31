@@ -20,4 +20,4 @@ const quizQuestionsSlice = createSlice({
 });
 
 export const { setQuizQuestions } = quizQuestionsSlice.actions;
-export default quizQuestionsSlice;
+export default quizQuestionsSlice.reducer;

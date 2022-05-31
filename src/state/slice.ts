@@ -7,7 +7,7 @@ interface EmailState {
   status: Statuses;
 }
 
-const initialState: EmailState = {
+export const initialState: EmailState = {
   email: "",
   status: "idle",
 };
@@ -17,7 +17,9 @@ const emailSlice = createSlice({
   initialState,
   reducers: {
     setEmail: (state, action: PayloadAction<EmailState["email"]>) => {
-      state.email = action.payload;
+      if (action.payload) {
+        state.email = action.payload;
+      }
     },
   },
   extraReducers: (builder) => {
@@ -34,4 +36,4 @@ const emailSlice = createSlice({
 });
 
 export const { setEmail } = emailSlice.actions;
-export default emailSlice;
+export default emailSlice.reducer;

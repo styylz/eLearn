@@ -19,10 +19,10 @@ export interface RootState {
 const sagaMiddleware = createSagaMiddleware();
 
 const combinedReducer = combineReducers<CombinedState<RootState>>({
-  products: productsSlice.reducer,
-  questions: quizQuestionsSlice.reducer,
-  email: emailSlice.reducer,
-  plans: plansSlice.reducer,
+  products: productsSlice,
+  questions: quizQuestionsSlice,
+  email: emailSlice,
+  plans: plansSlice,
 });
 
 export const rootReducer = (state: any, action: AnyAction) =>

@@ -35,4 +35,4 @@ const productsSlice = createSlice({
 });
 
 export const { setProducts, setFreeCourse } = productsSlice.actions;
-export default productsSlice;
+export default productsSlice.reducer;
