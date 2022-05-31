@@ -120,7 +120,9 @@ const Quiz: React.FC = () => {
                   )}
                   {showScore ? (
                     <Box marginX="auto" marginTop="s24">
-                      <GreenButton>Submit</GreenButton>
+                      <GreenButton onClick={() => handleSubmit(score)}>
+                        Submit
+                      </GreenButton>
                     </Box>
                   ) : (
                     ""
