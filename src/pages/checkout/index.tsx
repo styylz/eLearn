@@ -1,5 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { Banner, Plan, PlanHeader } from "./sections";
+import {
+  Banner,
+  CoursesBenefits,
+  PeopleReviews,
+  Plan,
+  PlanHeader,
+} from "./sections";
 import { useAppDispatch } from "state/store";
 import { selectPlans } from "state/selectors";
 import { fetchPlansAction } from "state/plans/PlansActions";
@@ -39,6 +45,13 @@ const Checkout: React.FC = () => {
     <>
       <Banner />
       <PlanHeader />
+      <Plan
+        plans={plans}
+        handlePlanClick={handlePlanClick}
+        selectedPlan={selectedPlan}
+      />
+      <CoursesBenefits />
+      <PeopleReviews />
       <Plan
         plans={plans}
         handlePlanClick={handlePlanClick}
