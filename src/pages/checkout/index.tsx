@@ -1,11 +1,12 @@
 import React from "react";
-import { Banner, PlanHeader } from "./sections";
+import { Banner, Plan, PlanHeader } from "./sections";
 
 const Checkout: React.FC = () => {
   return (
     <>
       <Banner />
       <PlanHeader />
+      <Plan />
     </>
   );
 };
