@@ -11,6 +11,8 @@ import { navigate } from "gatsby";
 import styled from "styled-components/macro";
 import { useAppDispatch } from "state/store";
 import { validateEmail } from "utils/validations";
+import { postEmail } from "state/thunks";
+import { setEmail } from "state/slice";
 
 export const EmailInfo: React.FC = () => {
   const [input, setInput] = useState({
@@ -19,6 +21,8 @@ export const EmailInfo: React.FC = () => {
   const [error, setError] = useState({
     message: "",
   });
+
+  const dispatch = useAppDispatch();
 
   const emailValidation = () => {
     if (!input.email || validateEmail(input.email) === false) {
@@ -34,6 +38,20 @@ export const EmailInfo: React.FC = () => {
     setInput({
       email: e.target.value,
     });
+  };
+
+  const handleSubmit = () => {
+    if (emailValidation()) {
+      setError({
+        message: "",
+      });
+      dispatch(postEmail(input));
+      dispatch(setEmail(input.email));
+
+      setTimeout(() => {
+        navigate("/success");
+      }, 1000);
+    }
   };
 
   return (
@@ -55,7 +73,7 @@ export const EmailInfo: React.FC = () => {
                 errorMessage={error.message}
               />
               <Box marginTop="s8">
-                <GreenButton>Submit</GreenButton>
+                <GreenButton onClick={() => handleSubmit()}>Submit</GreenButton>
               </Box>
             </Box>
           </StyledFlexContainer>
