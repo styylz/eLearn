@@ -64,6 +64,28 @@ const Quiz: React.FC = () => {
     }
   };
 
+  const handleSubmit = (obj: Score): void => {
+    const { max } = calcMaxCategoryValue(obj);
+    setMostPopularCategory(max[0]);
+    setLoading(true);
+
+    setTimeout(() => {
+      navigate("/email");
+    }, 2000);
+  };
+
+  useEffect(() => {
+    const newItem = products?.find(
+      ({ category, isFree }) => category === mostPopularCategory && isFree
+    );
+
+    dispatch(setFreeCourse(newItem as Product));
+  }, [mostPopularCategory]);
+
+  useEffect(() => {
+    dispatch(fetchQuizQuestionsAction());
+  }, []);
+
   return (
     <>
       {loading ? (
