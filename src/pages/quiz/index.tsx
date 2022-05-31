@@ -94,6 +94,7 @@ const Quiz: React.FC = () => {
         </Box>
       ) : (
         <>
+          <ProgressBar value={progressBarValue} max={questions.length} />
           <SectionWrapper>
             <Container>
               <FlexWrapper flexDirection="column" alignItems="center">
