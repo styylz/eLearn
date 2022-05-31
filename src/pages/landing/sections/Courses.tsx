@@ -9,8 +9,11 @@ import {
 } from "components";
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
+import { selectProducts } from "state/selectors";
 
 export const Courses: React.FC = () => {
+  const products = useSelector(selectProducts);
+  console.log(products);
   return (
     <SectionWrapper id="courses">
       <Container>
