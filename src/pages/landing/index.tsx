@@ -1,12 +1,13 @@
 import { Box, Navbar } from "components";
 import React from "react";
-import { Hero } from "./sections";
+import { CoursesBenefits, Hero } from "./sections";
 
 const Landing: React.FC = () => {
   return (
     <Box position="relative">
       <Navbar />
       <Hero />
+      <CoursesBenefits />
     </Box>
   );
 };
