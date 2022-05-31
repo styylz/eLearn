@@ -20,6 +20,16 @@ export const EmailInfo: React.FC = () => {
     message: "",
   });
 
+  const emailValidation = () => {
+    if (!input.email || validateEmail(input.email) === false) {
+      setError({
+        message: "Email is not valid",
+      });
+      return false;
+    }
+    return true;
+  };
+
   const handleInput = (e: React.ChangeEvent<HTMLInputElement>) => {
     setInput({
       email: e.target.value,
