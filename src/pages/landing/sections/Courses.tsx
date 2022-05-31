@@ -7,7 +7,7 @@ import {
   GreenButton,
   Box,
 } from "components";
-import React, { useState } from "react";
+import React from "react";
 import { useSelector } from "react-redux";
 import { selectProducts } from "state/selectors";
 
@@ -21,14 +21,16 @@ export const Courses: React.FC = () => {
           Get a choice of your course
         </Typography>
         <FlexWrapper justifyContent="center" flexWrap="wrap" margin="auto">
-          <ProductCard
-            id="1"
-            title="test"
-            avatar=""
-            name="john"
-            price="1"
-            background=""
-          />
+          {products.map(({ id, title, avatar, name, price, background }) => (
+            <ProductCard
+              id={id}
+              title={title}
+              avatar={avatar}
+              name={name}
+              price={price}
+              background={background}
+            />
+          ))}
           <Box marginTop="s32">
             <GreenButton> Check for more courses</GreenButton>
           </Box>
