@@ -13,7 +13,7 @@ import { selectEmail, selectFreeCourse } from "state/selectors";
 import { Link } from "gatsby";
 import styled from "styled-components/macro";
 
-export const Result = () => {
+export const Result: React.FC = () => {
   const freeCourse = useSelector(selectFreeCourse);
   const email = useSelector(selectEmail);
 
