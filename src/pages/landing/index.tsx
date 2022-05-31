@@ -1,6 +1,6 @@
 import { Box, Navbar } from "components";
 import React from "react";
-import { CoursesBenefits, Hero, JoinUs } from "./sections";
+import { Courses, CoursesBenefits, Hero, JoinUs } from "./sections";
 
 const Landing: React.FC = () => {
   return (
@@ -9,6 +9,7 @@ const Landing: React.FC = () => {
       <Hero />
       <CoursesBenefits />
       <JoinUs />
+      <Courses />
     </Box>
   );
 };
