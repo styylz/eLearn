@@ -8,3 +8,5 @@ export const selectFreeCourse = (state: AppState) => state.products.freeCourse;
 
 export const selectQuizQuestions = (state: AppState) =>
   state.questions.questions;
+
+export const selectPlans = (state: AppState) => state.plans.plans;
