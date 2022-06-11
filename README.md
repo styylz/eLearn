@@ -21,7 +21,6 @@
 2.  **Start the Project.**
 
     ```shell
-    cd my-gatsby-site/
     gatsby develop
     ```
 
